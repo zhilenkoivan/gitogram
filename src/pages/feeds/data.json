@@ -1,0 +1,52 @@
+[
+    {
+        "id": "0",
+        "avatar": "https://picsum.photos/300/300",
+        "username": "John Doe"
+    },
+    {
+        "id": "1",
+        "avatar": "https://picsum.photos/300/300",
+        "username": "Josh Doe"
+    },
+    {
+        "id": "2",
+        "avatar": "https://picsum.photos/300/300",
+        "username": "John Andrew"
+    },
+    {
+        "id": "3",
+        "avatar": "https://picsum.photos/300/300",
+        "username": "Camille Doe"
+    },
+    {
+        "id": "4",
+        "avatar": "https://picsum.photos/300/300",
+        "username": "John Gartor"
+    },
+    {
+        "id": "5",
+        "avatar": "https://picsum.photos/300/300",
+        "username": "John Gartor"
+    },
+    {
+        "id": "6",
+        "avatar": "https://picsum.photos/300/300",
+        "username": "John Gartor"
+    },
+    {
+        "id": "7",
+        "avatar": "https://picsum.photos/300/300",
+        "username": "John Gartor"
+    },
+    {
+        "id": "8",
+        "avatar": "https://picsum.photos/300/300",
+        "username": "John Gartor"
+    },
+    {
+        "id": "9",
+        "avatar": "https://picsum.photos/300/300",
+        "username": "Marselle Doe"
+    }
+]

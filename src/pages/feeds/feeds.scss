@@ -1,0 +1,47 @@
+.logo {
+    width: 174px;
+}
+.icon__wrapper{
+    display: flex;
+    align-items: center;
+}
+.icon {
+    margin-left: 25px;
+    color: #262626;
+    width: 25px;
+}
+.stories {
+    padding: 5px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    overflow: hidden;
+}
+.stories-item {
+    &:not(:last-child) {
+        margin-right: 30px;
+    }
+}
+
+.avatar {
+    width: 44px;
+    overflow: hidden;
+    margin-right: 14px;
+}
+
+.username {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 18px;
+}
+
+.comments {
+    margin: 10px 0;
+}
+
+.date{
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: rgba(0, 0, 0, 0.4);
+}

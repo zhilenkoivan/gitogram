@@ -1,0 +1,36 @@
+button {
+    width: 270px;
+    padding: 11px 0;
+    background: #31AE54;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+    &::after {
+        content: attr(data-hover-text);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 0px;
+        font-weight: 700;
+        line-height: 19px;
+        color: #FFFFFF;
+    }
+    &:hover {
+        background: #9E9E9E;
+        .btn-text {
+            font-size: 0px;      
+        }
+        &::after {
+            font-size: 16px;
+        }
+    }
+}
+.btn-text {
+    color: #FFFFFF;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 22px;
+}

@@ -13,7 +13,7 @@
 </template>
 <script>
 export default {
-  name: 'Button',
+  name: 'xButton',
   props: {
     hoverText: {
       type: String
@@ -26,4 +26,4 @@ export default {
   }
 }
 </script>
-<style src="./button.scss" lang="scss" scoped></style>
+<style src="./xButton.scss" lang="scss" scoped></style>

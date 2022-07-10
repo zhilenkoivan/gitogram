@@ -1,17 +1,17 @@
-import button from './button.vue'
+import xButton from './xButton.vue'
 
 export default {
-  title: "button",
-  component: { button },
+  title: 'xButton',
+  component: { xButton },
   argTypes: {
     hoverText: {
-      control: {type: 'text'}
+      control: { type: 'text' }
     }
   }
 }
 
 const template = (args) => ({
-  components: {xButton: button},
+  components: { xButton },
   data () {
     return { args }
   },
@@ -20,9 +20,8 @@ const template = (args) => ({
   `
 })
 
-
 export const Default = template.bind({})
 
 Default.args = {
-  hoverText: "Unfollow"
+  hoverText: 'Unfollow'
 }

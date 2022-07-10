@@ -5,10 +5,10 @@ export default {
   components: { comment },
   argTypes: {
     username: {
-      control: {type: 'text'}
+      control: { type: 'text' }
     },
     text: {
-      control: {type: 'text'}
+      control: { type: 'text' }
     }
   }
 }

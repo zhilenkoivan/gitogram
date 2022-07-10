@@ -1,7 +1,7 @@
 import progress from './progress.vue'
 
 export default {
-  title: "progress",
+  title: 'progress',
   component: { progress },
   argTypes: {
     onFinish: {

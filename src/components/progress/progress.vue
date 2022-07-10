@@ -19,7 +19,7 @@ export default {
     }
   },
   mounted () {
-    this.$nextTick(() => {
+    setTimeout(() => {
       this.active = true
     })
 

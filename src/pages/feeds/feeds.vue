@@ -23,6 +23,8 @@
               <story-user-item
               :avatar="story.avatar"
               :username="story.username"
+              active
+              class="stories-item-name"
               />
             </li>
           </ul>
@@ -32,10 +34,11 @@
   <div class="container">
     <post-user>
       <template #postHead>
-        <div class="avatar">
-          <img src="../../assets/faceUser/ProfilePic.svg" alt="profile picture" class="img">
-        </div>
-        <div class="username">joshua_l</div>
+        <story-user-item
+        :avatar="avatar"
+        :username="nameU"
+        class="avatar-block"
+        />
       </template>
       <template #postContent>
         <h2 class="post-title">Vue.js</h2>
@@ -43,22 +46,7 @@
         <user-buttons />
       </template>
       <template #postToggle>
-        <div class="toggle-block">
-          <toggler @onToggle="toggle" />
-          <div class="comments" v-if="shown">
-            <ul class="comments-list">
-              <li class="comments-item">
-                <comment username="joshua_l" text="Enable performance measuring in production, at the user's request" />
-              </li>
-              <li class="comments-item">
-                <comment username="Camille" text="It's Impossible to Rename an Inherited Slot" />
-              </li>
-              <li class="comments-item">
-                <comment username="Marselle" text="transition-group with flex parent causes removed items to fly" />
-              </li>
-            </ul>
-          </div>
-        </div>
+        <comments-block />
       </template>
       <template #postDate>
         <strong class="date">15 may</strong>
@@ -66,10 +54,11 @@
     </post-user>
     <post-user>
       <template #postHead>
-        <div class="avatar">
-          <img src="../../assets/faceUser/ProfilePic2.svg" alt="profile picture" class="img">
-        </div>
-        <div class="username">Camille</div>
+        <story-user-item
+        :avatar="avatar"
+        :username="nameU"
+        class="avatar-block"
+        />
       </template>
       <template #postContent>
         <h2 class="post-title">Vue.js</h2>
@@ -77,22 +66,7 @@
         <user-buttons />
       </template>
       <template #postToggle>
-        <div class="toggle-block">
-          <toggler @onToggle="toggle" />
-          <div class="comments" v-if="shown">
-            <ul class="comments-list">
-              <li class="comments-item">
-                <comment username="joshua_l" text="Enable performance measuring in production, at the user's request" />
-              </li>
-              <li class="comments-item">
-                <comment username="Camille" text="It's Impossible to Rename an Inherited Slot" />
-              </li>
-              <li class="comments-item">
-                <comment username="Marselle" text="transition-group with flex parent causes removed items to fly" />
-              </li>
-            </ul>
-          </div>
-        </div>
+        <comments-block />
       </template>
       <template #postDate>
         <strong class="date">15 may</strong>
@@ -108,8 +82,8 @@ import stories from './data.json'
 import { icon } from '../../icons/'
 import { postUser } from '../../components/postUser'
 import { userButtons } from '../../components/userButtons'
-import { toggler } from '../../components/toggler'
-import { comment } from '../../components/comment'
+import { commentsBlock } from '../../components/commentsBlock'
+
 export default {
   name: 'feeds',
   components: {
@@ -118,18 +92,13 @@ export default {
     icon,
     postUser,
     userButtons,
-    toggler,
-    comment
+    commentsBlock
   },
   data () {
     return {
       stories,
-      shown: false
-    }
-  },
-  methods: {
-    toggle (isOpened) {
-      this.shown = isOpened
+      avatar: 'https://picsum.photos/300/300',
+      nameU: 'Camilla'
     }
   }
 }

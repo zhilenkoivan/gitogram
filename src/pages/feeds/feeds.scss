@@ -28,6 +28,13 @@
     overflow: hidden;
     margin-right: 14px;
 }
+.avatar-block {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 18px;
+}
 
 .username {
     font-weight: 700;
@@ -44,4 +51,9 @@
     font-size: 12px;
     line-height: 14px;
     color: rgba(0, 0, 0, 0.4);
+}
+.stories-item-name {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 10px;
 }

@@ -52,11 +52,15 @@ button {
   position: relative;
 }
 .x-container {
-  width: 1200px;
+  max-width: 1200px;
   margin: 0 auto;
+  @media (max-width: 1230px) {
+    margin: 0 10px;
+  }
 }
 .container {
-  width: 979px;
+  max-width: 1000px;
+  padding: 10px;
   margin: 0 auto;
   margin-top: 32px;
   background-color: inherit;

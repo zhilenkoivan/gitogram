@@ -1,9 +1,9 @@
 <template>
   <div class="c-topline">
     <div class="x-container">
-      <div class="headline">
+      <header class="headline">
         <slot name="headline"></slot>
-      </div>
+      </header>
       <div class="content" v-if="$slots.content">
         <slot name="content"></slot>
       </div>

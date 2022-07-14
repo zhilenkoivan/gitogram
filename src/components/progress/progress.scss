@@ -5,7 +5,7 @@
     border-radius: 10px;
     position: relative;
     overflow: hidden;
-    &.active {
+    &.is-active {
         .indicator {
             width: 100%;
         }

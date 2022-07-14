@@ -1,20 +1,18 @@
-import avatar from './avatar.vue'
+import postContent from './postContent.vue'
 export default {
-  title: 'avatar',
-  components: { avatar },
+  title: 'postContent',
   argTypes: {
-    username: {
+    title: {
       control: { type: 'text' }
     },
-    source: {
+    text: {
       control: { type: 'text' }
     }
   }
 }
-
 const template = (args) => ({
   components: {
-    avatar
+    postContent
   },
   data () {
     return {
@@ -22,12 +20,12 @@ const template = (args) => ({
     }
   },
   template: `
-    <avatar :username="args.username" :source="args.source" />
+    <postContent :title="args.title" :text="args.text" />
   `
 })
 export const Default = template.bind({})
 
 Default.args = {
-  username: 'user name',
-  source: 'https://picsum.photos/300/300'
+  title: 'no topic',
+  text: 'no text'
 }

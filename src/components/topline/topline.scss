@@ -1,12 +1,12 @@
 .c-topline {
-    background: #FAFAFA;
-    border-bottom: 1px solid #C6C6C8;
     padding: 42px 0 32px;
 }
 
 .headline {
+    width: 100%;
     display: flex;
     justify-content: space-between;
+    padding: 0 5px;
   }
 
 .content {

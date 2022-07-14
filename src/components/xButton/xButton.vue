@@ -1,5 +1,6 @@
 <template>
   <button
+  type="button"
     :class="[
       'c-button', 'theme-green',
       {'hover-text': withHoverText}

@@ -1,5 +1,5 @@
 <template>
-  <button class="c-story-user-item">
+  <button class="c-story-user-item" type="button">
       <div :class="['avatar', {'bordered' : active}]">
         <img :src="avatar" alt="username avatar" class="img" />
       </div>

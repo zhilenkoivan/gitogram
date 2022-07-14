@@ -1,0 +1,30 @@
+.wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #000000;
+    overflow: hidden;
+}
+.x-container {
+    width: 1198px;
+    margin: 0 auto;
+    margin-top: 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo {
+    width: 174px;
+    border: none;
+    background-color: inherit;
+}
+.close {
+    width: 23px;
+    border: none;
+    background-color: inherit;
+}
+.content {
+    margin-left: 100px;
+}

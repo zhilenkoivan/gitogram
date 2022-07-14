@@ -2,19 +2,31 @@
     width: 375px;
     height: 667px;
     position: relative;
+    background: #fff;
+    position: relative;
+    border-radius: 8px;
+    transform: scale(0.8);
+    transition: all .6s linear;
+    &.active {
+        transform: scale(1);
+    }
 }
 .header {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
-    width: 375px;
+    width: 100%;
+    padding-top: 5px;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
     z-index: 2;
     background: rgba(255, 254, 254, 0.99);
 }
 .avatar {
     display: flex;
     align-items: center;
-    width: 375px;
+    width: 100%;
+    height: 100%;
     font-weight: 700;
     font-size: 18px;
     line-height: 18px;
@@ -22,14 +34,45 @@
     padding: 12px;
 }
 .content {
-    padding: 70px 18px 100px;
+    padding: 90px 18px 100px;
+}
+.loader {
+    width: 100%;
+    height: 100%;
+    margin-top: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .footer {
-    position: fixed;
+    position: absolute;
     bottom: 0;
     left: 0;
     width: 375px;
     padding: 24px 52px 32px;
     z-index: 2;
     background: rgba(255, 254, 254, 0.99);
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+.btn {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #000000;
+    border-radius: 100%;
+    background: #fff;
+    position: absolute;
+    top: 50%;
+    &-prev {
+        left: -15%;
+    }
+    &-next {
+        right: -15%;
+        .icon {
+            transform: rotate(180deg);
+        }
+    }
 }

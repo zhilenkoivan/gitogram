@@ -1,19 +1,37 @@
 <template>
-  <div class="c-container">
+  <div class="c-container" :class="{ active }">
     <div class="header">
-      <x-progress v-on:onFinish="progressEnd"/>
+      <x-progress v-on:onFinish="progressEnd" :active="active" />
       <story-user-item
-      :avatar="avatar"
-      :username="'nameU'"
+      :avatar="data.userAvatar"
+      :username="data.username"
       class="avatar"
       />
     </div>
     <div class="content">
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum eius eveniet voluptas adipisci accusamus unde ea fuga quisquam maxime, dolorum, quis architecto ratione odit sit corporis, aliquid eligendi aut vel!</p>
+      <div class="loader"  v-if="loading">
+        <spinner />
+      </div>
+      <div class="info" v-else>
+        <div v-if="data.content?.length" class="content-text" v-html="data.content"></div>
+        <placeholder v-else />
+      </div>
     </div>
     <div class="footer">
-      <x-button>Following</x-button>
+      <x-button>Follow</x-button>
     </div>
+    <template v-if="active">
+      <button class="btn btn-next">
+        <span class="icon">
+          <icon name="arrow" />
+        </span>
+      </button>
+      <button class="btn btn-prev">
+        <span class="icon">
+          <icon name="arrow" />
+        </span>
+      </button>
+    </template>
   </div>
 </template>
 
@@ -21,17 +39,32 @@
 import { xProgress } from '../progress'
 import { storyUserItem } from '../storyUserItem'
 import { xButton } from '../xButton'
+import { placeholder } from '../placeholder'
+import { spinner } from '../spinner'
+import { icon } from '../../icons'
 export default {
   name: 'slide',
   components: {
     xProgress,
     storyUserItem,
-    xButton
+    placeholder,
+    xButton,
+    icon,
+    spinner
   },
   data () {
     return {
       avatar: 'https://picsum.photos/300/300',
       nameU: 'Camilla'
+    }
+  },
+  props: {
+    active: Boolean,
+    loading: Boolean,
+    data: {
+      type: Object,
+      required: true,
+      default: () => ({})
     }
   },
   methods: {

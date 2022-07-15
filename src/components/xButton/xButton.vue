@@ -5,8 +5,7 @@
       'c-button', 'theme-green',
       {'hover-text': withHoverText}
     ]"
-    :data-hover-text="hoverText"
-  >
+    :data-hover-text="hoverText">
     <span class="btn-text">
       <slot></slot>
     </span>

@@ -1,7 +1,7 @@
 <template>
   <div class="c-container" :class="{ active }">
     <div class="header">
-      <x-progress v-on:onFinish="progressEnd" :active="active" />
+      <x-progress @onFinish="$emit('onProgressFinish')" :active="active" />
       <story-user-item
       :avatar="data.userAvatar"
       :username="data.username"
@@ -21,12 +21,12 @@
       <x-button>Follow</x-button>
     </div>
     <template v-if="active">
-      <button class="btn btn-next">
+      <button v-if="btnsShown.includes('next')" class="btn btn-next" @click="$emit('onNextSlide')">
         <span class="icon">
           <icon name="arrow" />
         </span>
       </button>
-      <button class="btn btn-prev">
+      <button v-if="btnsShown.includes('prev')" class="btn btn-prev" @click="$emit('onPrevSlide')">
         <span class="icon">
           <icon name="arrow" />
         </span>
@@ -52,6 +52,7 @@ export default {
     icon,
     spinner
   },
+  emits: ['onPrevSlide', 'onNextSlide', 'onProgressFinish'],
   data () {
     return {
       avatar: 'https://picsum.photos/300/300',
@@ -61,6 +62,13 @@ export default {
   props: {
     active: Boolean,
     loading: Boolean,
+    btnsShown: {
+      type: Array,
+      default: () => ['next', 'prev'],
+      validator (value) {
+        return value.every(item => item === 'next' || item === 'prev')
+      }
+    },
     data: {
       type: Object,
       required: true,

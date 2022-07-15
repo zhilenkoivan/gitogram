@@ -20,10 +20,11 @@
         </template>
         <template #content>
           <ul class="stories">
-            <li class="stories-item" v-for="story in stories" :key="story.id">
+            <li class="stories-item" v-for="{ id, owner, name } in trendings" :key="id">
               <story-user-item
-              :avatar="story.avatar"
-              :username="story.username"
+              :avatar="owner.avatar_url"
+              :username="name"
+              @storyPress="$router.push({name: 'stories', params: {initialSlide: id}})"
               active
               class="stories-item-name"
               />
@@ -73,29 +74,18 @@
       </template>
     </post-user>
   </main>
-    <div class="x-container">
-    <ul class="list">
-      <li class="item" v-for="item in items" :key="item.id">
-        <git-data
-        :gitData="getData(item)"
-        />
-      </li>
-    </ul>
-  </div>
 </template>
 
 <script>
 import { topline } from '../../components/topline/'
 import { storyUserItem } from '../../components/storyUserItem'
-import stories from './data.json'
 import { icon } from '../../icons/'
 import { postUser } from '../../components/postUser'
 import { userButtons } from '../../components/userButtons'
 import { commentsBlock } from '../../components/commentsBlock'
 import { postContent } from '../../components/postContent'
 import { logo } from '../../components/logo'
-import { gitData } from '../../components/gitData'
-import * as api from '../../api'
+import { mapState, mapActions } from 'vuex'
 
 export default {
   name: 'feeds',
@@ -106,37 +96,29 @@ export default {
     postUser,
     userButtons,
     commentsBlock,
-    gitData,
     logo,
     postContent
   },
   data () {
     return {
-      stories,
       avatar: 'https://picsum.photos/300/300',
       nameU: 'Camilla',
-      items: [],
       title: ['Vue.js', 'React.js'],
       text: ['JavaScript framework for building interactive web applications ⚡', 'Open source JavaScript library used for designing user interfaces']
     }
   },
+  computed: {
+    ...mapState({
+      trendings: state => state.trendings.data
+    })
+  },
   methods: {
-    getData (item) {
-      return {
-        title: item.name,
-        description: item.description,
-        username: item.owner.login,
-        stars: item.stargazers_count
-      }
-    }
+    ...mapActions({
+      fetchTrendings: 'trendings/fetchTrendings'
+    })
   },
   async created () {
-    try {
-      const { data } = await api.trandings.getTrendings()
-      this.items = data.items
-    } catch (error) {
-      console.log(error)
-    }
+    await this.fetchTrendings()
   }
 }
 </script>

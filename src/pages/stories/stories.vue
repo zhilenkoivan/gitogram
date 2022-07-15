@@ -5,13 +5,13 @@
         <button class="logo">
           <logo white />
         </button>
-        <button class="close" @click="trigger">
+        <button class="close" @click="$router.go(-1)">
           <icon name="close" />
         </button>
       </div>
     </header>
     <div class="content">
-      <storiesSlider />
+      <storiesSlider :initialSlide="Number($route.params.initialSlide)" />
     </div>
   </div>
 </template>
@@ -26,11 +26,6 @@ export default {
     logo,
     icon,
     storiesSlider
-  },
-  methods: {
-    trigger () {
-      this.$store.dispatch('fetchTrendings')
-    }
   }
 }
 </script>

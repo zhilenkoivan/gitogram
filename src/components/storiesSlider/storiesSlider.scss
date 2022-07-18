@@ -6,3 +6,28 @@
     margin-left: -188px;
     transition: .4s;
 }
+.stories-item {
+    position: relative;
+}
+.btn {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #000000;
+    border-radius: 100%;
+    background: #fff;
+    position: absolute;
+    z-index: 2;
+    top: 45%;
+    &-prev {
+        left: -15%;
+    }
+    &-next {
+        right: -15%;
+        .icon {
+            transform: rotate(180deg);
+        }
+    }
+}

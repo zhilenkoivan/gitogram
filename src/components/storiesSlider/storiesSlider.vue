@@ -9,11 +9,20 @@
           :data="getStoryData(trending)"
           :active="slideNdx === ndx"
           :loading="slideNdx === ndx && loading"
-          :btnsShown="activeBtns"
-          @onNextSlide="handleSlide(ndx + 1)"
-          @onPrevSlide="handleSlide(ndx - 1)"
           @onProgressFinish="handleSlide(ndx + 1)"
           />
+          <div class="buttons" v-if="slideNdx === ndx">
+            <button v-if="hasHext" class="btn btn-next" @click="handleSlide(ndx + 1)">
+              <span class="icon">
+                <icon name="arrow" />
+              </span>
+            </button>
+            <button v-if="hasPrev" class="btn btn-prev" @click="handleSlide(ndx - 1)">
+              <span class="icon">
+                <icon name="arrow" />
+              </span>
+            </button>
+          </div>
         </li>
       </ul>
     </div>
@@ -23,8 +32,12 @@
 <script>
 import { slide } from '../slide'
 import { mapState, mapActions } from 'vuex'
+import { icon } from '../../icons'
 export default {
-  components: { slide },
+  components: {
+    slide,
+    icon
+  },
   props: {
     initialSlide: {
       type: Number
@@ -42,11 +55,11 @@ export default {
     ...mapState({
       trendings: state => state.trendings.data
     }),
-    activeBtns () {
-      if (this.btnsShown === false) return []
-      if (this.slideNdx === 0) return ['next']
-      if (this.slideNdx === this.trendings.length - 1) return ['prev']
-      return ['next', 'prev']
+    hasHext () {
+      return this.slideNdx !== this.trendings.length - 1
+    },
+    hasPrev () {
+      return this.slideNdx !== 0
     }
   },
   methods: {
@@ -73,7 +86,6 @@ export default {
         getComputedStyle(item).getPropertyValue('width'),
         10
       )
-      console.log(slideWidth)
       this.slideNdx = slideNdx
       this.sliderPosition = -(slideWidth * slideNdx)
 
@@ -94,6 +106,7 @@ export default {
     },
     async handleSlide (slideNdx) {
       this.moveSlider(slideNdx)
+      console.log(slideNdx)
       await this.loadReadme()
     }
   },

@@ -74,24 +74,3 @@
     border-bottom-right-radius: 8px;
     border-bottom-left-radius: 8px;
 }
-.btn {
-    width: 36px;
-    height: 36px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid #000000;
-    border-radius: 100%;
-    background: #fff;
-    position: absolute;
-    top: 50%;
-    &-prev {
-        left: -15%;
-    }
-    &-next {
-        right: -15%;
-        .icon {
-            transform: rotate(180deg);
-        }
-    }
-}

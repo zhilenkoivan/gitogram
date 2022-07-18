@@ -25,25 +25,14 @@ export default {
   },
   actions: {
     async fetchTrendings ({ state, commit, rootState }) {
-      try {
-        const { data } = await api.trendings.getTrendings()
-        commit('SET_TRENDINGS', data.items)
-      } catch (e) {
-        console.log(e)
-        throw e
-      }
+      const { data } = await api.trendings.getTrendings()
+      commit('SET_TRENDINGS', data.items)
     },
     async fetchReadme ({ commit, getters }, { id, owner, repo }) {
       const curRepo = getters.getRepoById(id)
       if (curRepo.readme !== undefined) return
-
-      try {
-        const { data } = await api.readme.getReadme({ owner, repo })
-        commit('SET_README', { id, content: data })
-      } catch (e) {
-        console.log(e)
-        throw e
-      }
+      const { data } = await api.readme.getReadme({ owner, repo })
+      commit('SET_README', { id, content: data })
     }
   }
 }

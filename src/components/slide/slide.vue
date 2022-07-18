@@ -20,18 +20,6 @@
     <div class="footer">
       <x-button>Follow</x-button>
     </div>
-    <template v-if="active">
-      <button v-if="btnsShown.includes('next')" class="btn btn-next" @click="$emit('onNextSlide')">
-        <span class="icon">
-          <icon name="arrow" />
-        </span>
-      </button>
-      <button v-if="btnsShown.includes('prev')" class="btn btn-prev" @click="$emit('onPrevSlide')">
-        <span class="icon">
-          <icon name="arrow" />
-        </span>
-      </button>
-    </template>
   </div>
 </template>
 
@@ -41,7 +29,6 @@ import { storyUserItem } from '../storyUserItem'
 import { xButton } from '../xButton'
 import { placeholder } from '../placeholder'
 import { spinner } from '../spinner'
-import { icon } from '../../icons'
 export default {
   name: 'slide',
   components: {
@@ -49,7 +36,6 @@ export default {
     storyUserItem,
     placeholder,
     xButton,
-    icon,
     spinner
   },
   emits: ['onPrevSlide', 'onNextSlide', 'onProgressFinish'],
@@ -62,13 +48,6 @@ export default {
   props: {
     active: Boolean,
     loading: Boolean,
-    btnsShown: {
-      type: Array,
-      default: () => ['next', 'prev'],
-      validator (value) {
-        return value.every(item => item === 'next' || item === 'prev')
-      }
-    },
     data: {
       type: Object,
       required: true,

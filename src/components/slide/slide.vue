@@ -1,7 +1,7 @@
 <template>
   <div class="c-container" :class="{ active }">
     <div class="header">
-      <x-progress @onFinish="$emit('onProgressFinish')" :active="active" />
+      <x-progress @onFinish="$emit('onProgressFinish')" :active="localActive" />
       <story-user-item
       :avatar="data.userAvatar"
       :username="data.username"
@@ -18,7 +18,10 @@
       </div>
     </div>
     <div class="footer">
-      <x-button>Follow</x-button>
+      <x-button
+      :loading="data.following.loading"
+      :hoverText="hText"
+      @click="$emit('OnFollow', data.id)">Follow</x-button>
     </div>
   </div>
 </template>
@@ -38,13 +41,7 @@ export default {
     xButton,
     spinner
   },
-  emits: ['onPrevSlide', 'onNextSlide', 'onProgressFinish'],
-  data () {
-    return {
-      avatar: 'https://picsum.photos/300/300',
-      nameU: 'Camilla'
-    }
-  },
+  emits: ['onPrevSlide', 'onNextSlide', 'onProgressFinish', 'OnFollow'],
   props: {
     active: Boolean,
     loading: Boolean,
@@ -54,9 +51,24 @@ export default {
       default: () => ({})
     }
   },
-  methods: {
-    progressEnd () {
-      console.log('Finish')
+  data () {
+    return {
+      hText: 'Unfollow',
+      localActive: false
+    }
+  },
+  mounted () {
+    if (this.active) {
+      setTimeout(() => {
+        this.localActive = true
+      }, 0)
+    } else {
+      this.localActive = false
+    }
+  },
+  watch: {
+    active () {
+      this.localActive = this.active
     }
   }
 }

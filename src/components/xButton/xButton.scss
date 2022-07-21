@@ -1,5 +1,6 @@
 button {
     width: 270px;
+    height: 44px;
     padding: 11px 0;
     background: #31AE54;
     border-radius: 5px;
@@ -26,6 +27,38 @@ button {
         }
     }
 }
+.btn-loading {
+    background: #9E9E9E;
+    position: relative;
+    cursor: text;
+    .btn-text {
+        color: #9E9E9E;
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        top: 25%;
+        left: 47%;
+        height: 20px;
+        width: 20px;
+        border-left: 1px solid #fff;
+        border-bottom: 1px solid #fff;
+        border-right: 1px solid #fff;
+        border-top: 1px solid transparent;
+        border-radius: 50%;
+        animation: spinner 1s linear infinite;
+    }
+}
+.btn-disabled {
+    background: #9E9E9E;
+    cursor: text;
+    .btn-text {
+        font-size: 0px;      
+    }
+    &::after {
+        font-size: 16px;
+    }
+}
 .btn-text {
     color: #FFFFFF;
     font-family: 'Open Sans';
@@ -33,4 +66,13 @@ button {
     font-weight: 700;
     font-size: 16px;
     line-height: 22px;
+}
+@keyframes spinner {
+    from {
+        transform: rotate(0deg);
+    }
+ 
+    to {
+        transform: rotate(360deg);
+    }
 }

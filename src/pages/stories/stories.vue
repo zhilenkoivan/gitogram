@@ -5,7 +5,7 @@
         <button class="logo">
           <logo white />
         </button>
-        <button class="close" @click="$router.go(-1)">
+        <button class="close" @click="$router.push('/')">
           <icon name="close" />
         </button>
       </div>

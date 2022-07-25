@@ -1,5 +1,6 @@
 import * as api from '../../api'
-// import { starRepo } from '../../api/rest/starred'
+// eslint-disable-next-line no-unused-vars
+import { starRepo } from '../../api/rest/starred'
 
 export default {
   namespaced: true,
@@ -54,7 +55,6 @@ export default {
       commit('SET_README', { id, content: data })
     },
     async starRepo ({ commit, getters }, id) {
-      // eslint-disable-next-line no-unused-vars
       const { name: repo, owner } = getters.getRepoById(id)
 
       commit('SET_FOLLOWING', {
@@ -65,6 +65,30 @@ export default {
           error: ''
         }
       })
+      try {
+        await api.starred.starRepo({ owner: owner.login, repo })
+        commit('SET_FOLLOWING', {
+          id,
+          data: {
+            status: true
+          }
+        })
+      } catch (e) {
+        commit('SET_FOLLOWING', {
+          id,
+          data: {
+            status: false,
+            error: 'Error has happened'
+          }
+        })
+      } finally {
+        commit('SET_FOLLOWING', {
+          id,
+          data: {
+            loading: false
+          }
+        })
+      }
     }
   }
 }

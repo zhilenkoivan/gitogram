@@ -1,0 +1,38 @@
+.auth {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: -22px;
+    height: 100vh;
+
+}
+.start-block {
+    background: #fff;
+    width: 256px;
+    margin-left: 120px;
+}
+.logo {
+    width: 200px;
+    margin-bottom: 24px;
+}
+.text {
+    margin-bottom: 66px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 28px;
+    color: #6F6F6F;
+}
+.laptop {
+    height: 530px;
+}
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 84px;
+    width: 100%;
+    border-top: 1px solid rgba(0, 0, 0, 0.4);;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

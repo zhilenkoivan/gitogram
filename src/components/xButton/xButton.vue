@@ -2,7 +2,6 @@
   <button
   type="button"
     :class="[
-      'c-button', 'theme-green',
       {'hover-text': withHoverText},
       {'btn-loading': loading},
       {'btn-disabled': disabled}

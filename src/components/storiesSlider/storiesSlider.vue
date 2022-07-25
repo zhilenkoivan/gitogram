@@ -9,7 +9,7 @@
           :data="getStoryData(trending)"
           :active="slideNdx === ndx"
           :loading="slideNdx === ndx && loading"
-          @onProgressFinish="handleSlide(ndx + 1)"
+          @onProgressFinish="progressSlide(ndx + 1)"
           @OnFollow="starRepo"
           />
           <div class="buttons" v-if="slideNdx === ndx">
@@ -67,7 +67,7 @@ export default {
     ...mapActions({
       fetchTrendings: 'trendings/fetchTrendings',
       fetchReadme: 'trendings/fetchReadme',
-      starPero: 'trendings/starRepo'
+      starRepo: 'trendings/starRepo'
     }),
     async fetchReadmeForActiveSlide () {
       const { id, owner, name } = this.trendings[this.slideNdx]
@@ -82,6 +82,11 @@ export default {
         following: obj.following
       }
     },
+    progressSlide (slideNdx) {
+      if (this.slideNdx !== this.trendings.length - 1) {
+        this.handleSlide(slideNdx)
+      }
+    },
     moveSlider (slideNdx) {
       const { slider } = this.$refs
       const item = document.getElementById('item')
@@ -89,20 +94,15 @@ export default {
         getComputedStyle(item).getPropertyValue('width'),
         10
       )
-      if (this.slideNdx !== this.trendings.length - 1) {
-        this.slideNdx = slideNdx
-        this.sliderPosition = -(slideWidth * slideNdx)
-        slider.style.transform = `translateX(${this.sliderPosition}px)`
-      }
+      this.slideNdx = slideNdx
+      this.sliderPosition = -(slideWidth * slideNdx)
+      slider.style.transform = `translateX(${this.sliderPosition}px)`
     },
     async loadReadme () {
       this.loading = true
       this.btnsShown = false
       try {
         await this.fetchReadmeForActiveSlide()
-      } catch (e) {
-        console.log(e)
-        throw e
       } finally {
         this.loading = false
         this.btnsShown = true

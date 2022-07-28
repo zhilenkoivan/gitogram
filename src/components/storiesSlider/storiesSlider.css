@@ -1,0 +1,51 @@
+.stories {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  left: 50%;
+  margin-left: -188px;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.stories-item {
+  position: relative;
+}
+
+.btn {
+  width: 36px;
+  height: 36px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border: 1px solid #000000;
+  border-radius: 100%;
+  background: #fff;
+  position: absolute;
+  z-index: 2;
+  top: 45%;
+}
+
+.btn-prev {
+  left: -15%;
+}
+
+.btn-next {
+  right: -15%;
+}
+
+.btn-next .icon {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+/*# sourceMappingURL=storiesSlider.css.map */

@@ -1,0 +1,73 @@
+.c-user {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.avatar {
+  width: 86px;
+  margin-right: 30px;
+}
+
+.username {
+  margin-right: 20px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.stats-int {
+  color: #262626;
+  font-size: 14px;
+  margin-right: 4px;
+  font-weight: bold;
+}
+
+.watchers {
+  color: var(--green);
+  text-decoration: none;
+}
+
+.watchers .stats-title {
+  text-decoration: underline;
+}
+
+.watchers:hover .stats-title {
+  text-decoration: none;
+}
+
+.watchers.router-link-active {
+  pointer-events: none;
+}
+
+.watchers.router-link-active .stats-title {
+  text-decoration: none;
+}
+
+.stats-title {
+  font-size: 13px;
+}
+
+.stats-item {
+  margin-right: 13px;
+}
+
+.data {
+  font-size: 14px;
+  color: #a8a8a8;
+}
+
+.stats {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.reposts {
+  color: #000000;
+}
+
+.reposts.router-link-exact-active {
+  text-decoration: none;
+  color: #000000;
+}
+/*# sourceMappingURL=about.css.map */

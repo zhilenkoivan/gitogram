@@ -1,0 +1,29 @@
+.stats {
+    display: flex;
+  
+    &__border {
+      border: 1px solid rgba(27, 31, 35, 0.15);
+      display: flex;
+      align-items: center;
+      padding: 0 10px;
+    }
+  
+    &__center {
+      background: #ffffff;
+    }
+  
+    &__left {
+      border-radius: 6px 0px 0px 6px;
+      background: #fafbfc;
+    }
+  
+    &__right {
+      border-radius: 0px 6px 6px 0px;
+      background: #fafbfc;
+    }
+  
+    &__icon {
+      width: 14px;
+      height: 14px;
+    }
+  }

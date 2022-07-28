@@ -1,0 +1,22 @@
+.avatar {
+  width: 37px;
+  height: 37px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.avatar_s {
+  width: 37px;
+  height: 37px;
+}
+
+.avatar_m {
+  width: 44px;
+  height: 44px;
+}
+
+.avatar_l {
+  width: 80px;
+  height: 80px;
+}
+/*# sourceMappingURL=avatar.css.map */

@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,WAAW,CAAC;EACR,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,IAAI;EACZ,OAAO,EAAE,IAAI;EACb,gBAAgB,EAAE,OAAkB;EACpC,KAAK,EAAE,OAAO;EACd,aAAa,EAAE,IAAI;CACtB",
+    "sources": [
+        "gitData.scss"
+    ],
+    "names": [],
+    "file": "gitData.css"
+}

@@ -1,0 +1,93 @@
+body, html {
+  height: 100%;
+}
+
+body {
+  font-family: 'Inter', Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #262626;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+h1 {
+  margin: 0;
+}
+
+h2 {
+  margin: 0;
+}
+
+h3 {
+  margin: 0;
+}
+
+h4 {
+  margin: 0;
+}
+
+h5 {
+  margin: 0;
+}
+
+h6 {
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+p {
+  margin: 0;
+}
+
+svg {
+  display: block;
+}
+
+button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+}
+
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.wrapper {
+  overflow: hidden;
+  min-height: 100%;
+  position: relative;
+}
+
+.x-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1230px) {
+  .x-container {
+    margin: 0 10px;
+  }
+}
+
+.container {
+  max-width: 1000px;
+  padding: 10px;
+  margin: 0 auto;
+  margin-top: 32px;
+  background-color: inherit;
+}
+/*# sourceMappingURL=global.css.map */

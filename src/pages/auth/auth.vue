@@ -8,7 +8,7 @@
         More than just one repository.
         This is our digital world.
       </div>
-      <xButton :hoverText="hText" @click="getCode">Authorize with github</xButton>
+      <xButton :size="size_s" :theme="theme_green" :hoverText="hText" @click="redirectToGhAuth">Authorize with github</xButton>
     </div>
     <img src="../../assets/Device.jpg" alt="laptop" class="laptop">
   </div>
@@ -20,7 +20,8 @@
 <script>
 import { logo } from '../../components/logo'
 import { xButton } from '../../components/xButton'
-import env from '../../../env'
+import { mapActions } from 'vuex'
+import axios from 'axios'
 export default {
   components: {
     logo,
@@ -28,44 +29,26 @@ export default {
   },
   data () {
     return {
-      hText: 'Github'
+      hText: 'Authorize with github',
+      size_s: 'size_s',
+      size_m: 'size_m',
+      theme_grey: 'theme_grey',
+      theme_green: 'theme_green'
     }
   },
   methods: {
-    getCode () {
-      const githubAuthApi = 'https://github.com/login/oauth/authorize'
-      const params = new URLSearchParams()
-
-      params.append('client_id', env.clientId)
-      params.append('scope', 'repo,user')
-
-      window.location.href = `${githubAuthApi}?${params}`
-    }
+    ...mapActions({
+      redirectToGhAuth: 'auth/getAuthCode',
+      authUserByCode: 'auth/authUserByCode'
+    })
   },
-  async created () {
+  async mounted () {
     const code = new URLSearchParams(window.location.search).get('code')
-
     if (code) {
-      try {
-        const response = await fetch('http://localhost:8000/github', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            clientId: env.clientId,
-            code,
-            clientSecret: env.clientSecret
-          })
-        })
-        const { token } = await response.json()
-
-        localStorage.setItem('token', token)
-        this.$router.replace({ name: 'feeds' })
-
-        console.log(token)
-      } catch (e) {
-      }
+      const token = await this.authUserByCode(code)
+      localStorage.setItem('token', token)
+      axios.defaults.headers.Authorization = `token ${token}`
+      this.$router.replace({ name: 'feeds', query: { search: '' } })
     }
   }
 }

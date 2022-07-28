@@ -2,14 +2,10 @@ import comment from './comment.vue'
 
 export default {
   title: 'comment',
-  components: { comment },
+  component: { comment },
   argTypes: {
-    username: {
-      control: { type: 'text' }
-    },
-    text: {
-      control: { type: 'text' }
-    }
+    username: { type: 'text' },
+    text: { type: 'text' }
   }
 }
 
@@ -23,13 +19,12 @@ const template = (args) => ({
     }
   },
   template: `
-    <comment :username="args.username" :text="args.text" />
+    <comment :username="args.username" :text="args.text"></comment>
   `
 })
 
 export const Default = template.bind({})
-
 Default.args = {
-  username: 'username',
-  text: 'Lorem ipsum dolor sit amet.'
+  username: 'Default Name',
+  text: 'Default text'
 }

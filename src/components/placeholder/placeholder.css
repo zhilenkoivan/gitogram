@@ -1,0 +1,30 @@
+.image {
+  display: block;
+  width: 100%;
+  height: 136px;
+  background: #DEDEDE;
+  border-radius: 4px;
+  margin-bottom: 22px;
+}
+
+.line {
+  display: block;
+  width: 90%;
+  height: 13px;
+  background: #DEDEDE;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+.line--one {
+  width: 80%;
+}
+
+.line--three {
+  width: 70%;
+}
+
+.line--three:not(:last-child) {
+  margin-bottom: 18px;
+}
+/*# sourceMappingURL=placeholder.css.map */

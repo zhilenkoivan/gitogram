@@ -19,10 +19,14 @@
     </div>
     <div class="footer">
       <x-button
-      :disabled="data.following.status"
+      :size="size_m"
+      :theme="data.following.status ? 'theme_grey' : 'theme_green'"
+      :hoverText="hoverText"
       :loading="data.following.loading"
-      :hoverText="hText"
-      @click="$emit( data.following.status ? 'onUnfollow' : 'onFollow', data.id)">{{ data.following.status ? 'Unfollow' : 'Follow' }}</x-button>
+      @click="$emit(data.following.status ? 'onUnFollow' : 'onFollow', id)"
+      >
+        {{data.following.status ? 'Unfollow': 'Follow'}}
+      </x-button>
     </div>
   </div>
 </template>
@@ -54,7 +58,11 @@ export default {
   },
   data () {
     return {
-      hText: 'Unfollow',
+      hoverText: 'Unfollow',
+      size_s: 'size_s',
+      size_m: 'size_m',
+      theme_grey: 'theme_grey',
+      theme_green: 'theme_green',
       localActive: false
     }
   },

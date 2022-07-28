@@ -1,20 +1,24 @@
-.button {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 0;
-
-    .icon {
-        width: 10px;
-        transform: rotate(180deg);
+.toggler {
+    &.button {
+      display: flex;
+      align-items: center;
+      padding: 0;
     }
-    &.active {
-        .icon {
-            transform: rotate(0deg);
-        }
-    }    
-}
-
-.text {
-    margin-right: 5px;
-}
+  
+    &__inner {
+      display: flex;
+      align-items: center;
+    }
+  }
+  .icon {
+    width: 10px;
+    transform: rotate(180deg);
+    transition: .4s;
+    color: #000;
+  }
+  
+  .active {
+    .icon {
+      transform: rotate(0deg);
+    }
+  }

@@ -1,0 +1,21 @@
+.avatar {
+    width: 37px;
+    height: 37px;
+    border-radius: 50%;
+    overflow: hidden;
+  
+    &_s {
+      width: 37px;
+      height: 37px;
+    }
+  
+    &_m {
+      width: 44px;
+      height: 44px;
+    }
+  
+    &_l {
+      width: 80px;
+      height: 80px;
+    }
+  }

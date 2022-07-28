@@ -9,14 +9,15 @@
 
 <script>
 export default {
+  name: 'storyUserItem',
   props: {
     avatar: {
       type: String,
-      required: true
+      required: true,
+      default: 'https://picsum.photos/300/300'
     },
     username: {
-      type: String,
-      required: true
+      type: String
     },
     active: Boolean
   },

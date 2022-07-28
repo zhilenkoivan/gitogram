@@ -10,7 +10,8 @@
           :active="slideNdx === ndx"
           :loading="slideNdx === ndx && loading"
           @onProgressFinish="progressSlide(ndx + 1)"
-          @OnFollow="starRepo"
+          @OnFollow="starRepo(id)"
+          @onUnFollow="unStarRepo(id)"
           />
           <div class="buttons" v-if="slideNdx === ndx">
             <button v-if="hasHext" class="btn btn-next" @click="handleSlide(ndx + 1)">

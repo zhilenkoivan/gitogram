@@ -1,0 +1,19 @@
+.c-topline {
+  padding: 42px 0 32px;
+}
+
+.headline {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 5px;
+}
+
+.content {
+  padding-top: 37px;
+}
+/*# sourceMappingURL=topline.css.map */

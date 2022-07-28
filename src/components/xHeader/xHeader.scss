@@ -1,0 +1,26 @@
+.c-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .logo {
+    width: 150px;
+  }
+  .buttons {
+    display: flex;
+    align-items: center;
+  }
+  .icon {
+    color: #000;
+    width: 24px;
+    &:not(:last-child) {
+        margin-right: 12px;
+    }
+    &:last-child {
+        margin-left: 12px;
+    }
+  
+    &_logout {
+      width: 25px;
+    }
+  }

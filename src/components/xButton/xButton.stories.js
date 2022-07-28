@@ -1,4 +1,5 @@
 import xButton from './xButton.vue'
+import { spinner } from '../spinner'
 
 export default {
   title: 'xButton',
@@ -6,12 +7,25 @@ export default {
   argTypes: {
     hoverText: {
       control: { type: 'text' }
+    },
+    size: {
+      options: ['size_s', 'size_m'],
+      control: { type: 'select' }
+    },
+    theme: {
+      options: ['theme_grey', 'theme_green'],
+      control: { type: 'select' }
     }
   }
 }
 
 const template = (args) => ({
-  components: { xButton },
+  components: {
+    xButton
+  },
+  subcomponents: {
+    spinner
+  },
   data () {
     return { args }
   },
@@ -19,26 +33,11 @@ const template = (args) => ({
     <x-button v-bind="args">Following</x-button>
   `
 })
-const templateDisabled = (args) => ({
-  components: { xButton },
-  data () {
-    return { args }
-  },
-  template: `
-    <x-button v-bind="args" disabled>Following</x-button>
-  `
-})
-const templateLoading = () => ({
-  components: { xButton },
-  template: `
-    <x-button loading></x-button>
-  `
-})
 
 export const Default = template.bind({})
-export const Loading = templateLoading.bind({})
-export const Disabled = templateDisabled.bind({})
 
 Default.args = {
-  hoverText: 'Unfollow'
+  hoverText: 'Unfollow',
+  size: 'size_s',
+  theme: 'theme_green'
 }

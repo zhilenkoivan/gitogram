@@ -1,5 +1,16 @@
 <template>
-  <div class="spinner"></div>
+  <div class="c-spinner" :class="color"></div>
 </template>
 
-<style src="./spinner.scss" lang="scss" scoped></style>
+<script>
+export default {
+  name: 'Spinner',
+  props: {
+    color: {
+      type: String
+    }
+  }
+}
+</script>
+
+<style src="./spinner.scss" scoped lang="scss"></style>

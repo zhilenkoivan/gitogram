@@ -1,6 +1,6 @@
 import { makeRequests } from '../requests'
 
-export const getStarredRepos = ({ limit }) => {
+export const getStarredReposApi = ({ limit }) => {
   const params = new URLSearchParams()
   if (limit) {
     params.append('per_page', limit)
@@ -10,12 +10,12 @@ export const getStarredRepos = ({ limit }) => {
   })
 }
 
-export const starRepo = ({ repo, owner }) => makeRequests({
+export const starRepoApi = ({ repo, owner }) => makeRequests({
   url: `/user/starred/${owner}/${repo}`,
   method: 'put'
 })
 
-export const unStarRepo = ({ repo, owner }) => makeRequests({
+export const unStarRepoApi = ({ repo, owner }) => makeRequests({
   url: `/user/starred/${owner}/${repo}`,
   method: 'delete'
 })

@@ -2,16 +2,15 @@ import spinner from './spinner.vue'
 
 export default {
   title: 'spinner',
-  components: {
-    spinner
-  }
+  component: { spinner }
 }
+
 const template = () => ({
   components: {
     spinner
   },
   template: `
-    <spinner />
+    <spinner></spinner>
   `
 })
 

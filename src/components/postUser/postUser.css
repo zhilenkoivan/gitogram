@@ -1,0 +1,43 @@
+.c-postUser {
+  background-color: inherit;
+  margin-bottom: 24px;
+}
+
+.postHead {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  margin-bottom: 16px;
+}
+
+.postContent {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  padding: 24px 20px;
+  gap: 10px;
+  background: #FFFFFF;
+  border: 1px solid #F1F1F1;
+  -webkit-box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.07);
+          box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.07);
+  border-radius: 10px;
+  margin-bottom: 18px;
+}
+/*# sourceMappingURL=postUser.css.map */

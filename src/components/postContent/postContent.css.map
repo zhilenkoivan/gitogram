@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,aAAa,CAAC;EACV,KAAK,EAAE,IAAI;EACX,aAAa,EAAE,IAAI;CACtB",
+    "sources": [
+        "postContent.scss"
+    ],
+    "names": [],
+    "file": "postContent.css"
+}

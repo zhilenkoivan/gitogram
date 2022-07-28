@@ -1,0 +1,73 @@
+.c-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 270px;
+  height: 44px;
+  border-radius: 5px;
+}
+
+.c-button .btn-text {
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 22px;
+  color: #FFFFFF;
+}
+
+.c-button.size_s {
+  width: auto;
+  padding: 6px 28px;
+  font-size: 12px;
+}
+
+.c-button.size_m {
+  padding: 10px 50px;
+  font-weight: bold;
+  font-size: 16px;
+  background: #f0f0f0;
+}
+
+.c-button.theme_grey {
+  background: #9E9E9E;
+}
+
+.c-button.theme_grey:hover {
+  background: #31AE54;
+  color: #fff;
+}
+
+.c-button.theme_green {
+  background: #31AE54;
+  color: #fff;
+}
+
+.c-button.theme_green:hover {
+  background: #9E9E9E;
+}
+
+.c-button.hover-text:hover .btn-text {
+  font-size: 0;
+}
+
+.c-button.hover-text:hover:after {
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 22px;
+  color: #FFFFFF;
+}
+
+.c-button.hover-text:after {
+  content: attr(data-hover-text);
+  font-size: 0;
+}
+/*# sourceMappingURL=xButton.css.map */

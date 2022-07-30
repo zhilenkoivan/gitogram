@@ -3,6 +3,7 @@
     <div class="postHead">
       <slot name="postHead"></slot>
     </div>
+    <slot></slot>
     <div class="postToggle">
       <slot name="postToggle"></slot>
     </div>

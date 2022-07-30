@@ -9,7 +9,6 @@
         <div class="title">Following</div>
         <div class="count">{{starred.length}}</div>
       </div>
-<!--          <pre>{{starred}}</pre>-->
       <ul class="following__list">
         <li
           class="following__item"

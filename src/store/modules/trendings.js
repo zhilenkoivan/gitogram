@@ -37,7 +37,7 @@ export default {
     }
   },
   getters: {
-    getRepoById: (state) => (id) => state.data.find((trendingRepo) => trendingRepo.id === id)
+    getRepoById: (state) => (id) => state.data.find((trendingsRepo) => trendingsRepo.id === id)
   },
   actions: {
     async fetchTrendings ({ commit }) {
@@ -61,7 +61,6 @@ export default {
       }
     },
     async starRepo ({ commit, getters }, id) {
-      console.log(getters.getRepoById(id))
       const { name: repo, owner } = getters.getRepoById(id)
       commit('SET_FOLLOWING', {
         id,

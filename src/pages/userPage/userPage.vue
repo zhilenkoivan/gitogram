@@ -2,6 +2,7 @@
   <div class="topline">
     <topline>
       <template #headline>
+        <x-header></x-header>
       </template>
     </topline>
   </div>
@@ -27,9 +28,9 @@
 </template>
 
 <script>
-// import { mapActions, mapState, mapGetters } from 'vuex'
 import { topline } from '../../components/topline'
 import { about } from '../../components/about'
+import { xHeader } from '../../components/xHeader'
 
 import { useStore } from 'vuex'
 import { computed } from 'vue'
@@ -38,6 +39,7 @@ export default {
   name: 'UserPage',
   components: {
     topline,
+    xHeader,
     about
   },
   setup () {

@@ -1,9 +1,9 @@
 <template>
   <div class="card">
-    <div class="card__title_wrap mb-16">
-      <h2 class="card__title mb-16">{{ title }}</h2>
+    <div class="card__title_wrap">
+      <h2 class="card__title">{{ title }}</h2>
     </div>
-    <div class="card__desc mb-32">
+    <div class="card__desc">
       {{ description }}
     </div>
     <div class="card__stats">

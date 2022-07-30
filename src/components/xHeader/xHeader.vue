@@ -54,14 +54,9 @@ export default {
   },
   methods: {
     ...mapActions({
-      logoutAction: 'auth/logout',
+      logout: 'auth/logout',
       getUser: 'user/getUser'
-    }),
-    logout () {
-      localStorage.removeItem('token')
-      this.$router.replace({ name: 'authPage' })
-      window.location.reload()
-    }
+    })
   },
   created () {
     this.getUser()

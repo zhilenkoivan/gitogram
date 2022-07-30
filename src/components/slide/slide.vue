@@ -19,13 +19,12 @@
     </div>
     <div class="footer">
       <x-button
-      :size="size_m"
-      :theme="data.following.status ? 'theme_grey' : 'theme_green'"
-      :hoverText="hoverText"
-      :loading="data.following.loading"
-      @click="$emit(data.following.status ? 'onUnFollow' : 'onFollow', id)"
+        :theme="data.following.status ? 'theme_grey' : 'theme_green'"
+        :hoverText="data.following.status ? 'Unfollowed' : 'Following'"
+        :loading="data.following.loading"
+        @click="$emit(data.following.status ? 'onUnFollow' : 'onFollow', data.id)"
       >
-        {{data.following.status ? 'Unfollow': 'Follow'}}
+        {{data.following.status ? "Unfollowing" : "Followed"}}
       </x-button>
     </div>
   </div>

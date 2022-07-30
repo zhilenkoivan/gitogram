@@ -10,8 +10,8 @@
           :active="slideNdx === ndx"
           :loading="slideNdx === ndx && loading"
           @onProgressFinish="progressSlide(ndx + 1)"
-          @OnFollow="starRepo(id)"
-          @onUnFollow="unStarRepo(id)"
+          @onFollow="starRepo"
+          @onUnFollow="unStarRepo"
           />
           <div class="buttons" v-if="slideNdx === ndx">
             <button v-if="hasHext" class="btn btn-next" @click="handleSlide(ndx + 1)">
@@ -50,7 +50,8 @@ export default {
       slideNdx: 0,
       sliderPosition: 0,
       loading: false,
-      btnsShown: true
+      btnsShown: true,
+      readmeInd: 0
     }
   },
   computed: {
@@ -68,7 +69,8 @@ export default {
     ...mapActions({
       fetchTrendings: 'trendings/fetchTrendings',
       fetchReadme: 'trendings/fetchReadme',
-      starRepo: 'trendings/starRepo'
+      starRepo: 'trendings/starRepo',
+      unStarRepo: 'trendings/unStarRepo'
     }),
     async fetchReadmeForActiveSlide () {
       const { id, owner, name } = this.trendings[this.slideNdx]

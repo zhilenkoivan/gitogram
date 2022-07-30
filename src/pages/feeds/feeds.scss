@@ -1,8 +1,3 @@
-.topline {
-    width: 100%;
-    background: #FAFAFA;
-    border-bottom: 1px solid #C6C6C8;
-}
 .logo {
     width: 174px;
 }
@@ -32,6 +27,7 @@
         }
 }
 .stories-item {
+    width: 92px;
     &:not(:last-child) {
         margin-right: 30px;
     }
@@ -71,4 +67,12 @@
     font-weight: 400;
     font-size: 12px;
     line-height: 10px;
+}
+.post-head {
+    display: flex;
+    align-items: center;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 18px;
 }

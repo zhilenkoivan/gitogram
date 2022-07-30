@@ -59,7 +59,6 @@ import { feed } from '../../components/feed'
 import { card } from '../../components/card'
 import { xHeader } from '../../components/xHeader'
 import { mapState, mapActions, mapGetters } from 'vuex'
-import * as api from '../../api'
 
 export default {
   name: 'feeds',
@@ -94,15 +93,7 @@ export default {
   },
   async created () {
     await this.fetchTrendings()
-    try {
-      const { data } = await api.trendings.getTrendings()
-      this.items = data.items
-    } catch (error) {
-      console.log(error)
-    }
-  },
-  mounted () {
-    this.fetchStarred({ limit: 10 })
+    await this.fetchStarred({ limit: 10 })
   }
 }
 </script>

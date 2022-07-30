@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import { mapState, mapActions, mapGetters } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 import { icon } from '../../icons'
 import { logo } from '../logo'
 import { avatar } from '../avatar'
@@ -46,20 +46,13 @@ export default {
   },
   computed: {
     ...mapState({
-      user: (state) => state.user.data
-    }),
-    ...mapGetters({
-      hasUser: 'user/hasUser'
+      user: (state) => state.auth.user
     })
   },
   methods: {
     ...mapActions({
-      logout: 'auth/logout',
-      getUser: 'user/getUser'
+      logout: 'auth/logout'
     })
-  },
-  created () {
-    this.getUser()
   }
 }
 </script>

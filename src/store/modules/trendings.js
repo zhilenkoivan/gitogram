@@ -40,7 +40,15 @@ export default {
     getRepoById: (state) => (id) => state.data.find((trendingsRepo) => trendingsRepo.id === id)
   },
   actions: {
-    async fetchTrendings ({ commit }) {
+    async fetchTrendings ({ commit, state }) {
+      console.log('fetchTrendings before check')
+
+      if (state.data.length) {
+        return false
+      }
+
+      console.log('fetchTrendings after check')
+
       try {
         const { data } = await api.trendings.getTrendings()
         commit('SET_TRENDINGS', data.items)
@@ -51,6 +59,7 @@ export default {
     },
     async fetchReadme ({ commit, getters }, { id, owner, repo }) {
       const curRepo = getters.getRepoById(id)
+      console.log(curRepo.readme)
       if (curRepo.readme !== undefined) return
       try {
         const { data } = await api.readme.getReadme({ owner, repo })

@@ -46,7 +46,7 @@ export default {
     const { dispatch, state } = useStore()
     dispatch('starred/fetchStarred')
     return {
-      user: computed(() => state.user.data),
+      user: computed(() => state.auth.user),
       followingQty: computed(() => state.starred.data.length)
 
     }

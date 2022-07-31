@@ -21,7 +21,6 @@
 import { logo } from '../../components/logo'
 import { xButton } from '../../components/xButton'
 import { mapActions } from 'vuex'
-import axios from 'axios'
 export default {
   components: {
     logo,
@@ -47,8 +46,7 @@ export default {
     if (code) {
       const token = await this.authUserByCode(code)
       localStorage.setItem('token', token)
-      axios.defaults.headers.Authorization = `token ${token}`
-      this.$router.replace({ name: 'feeds', query: { search: '' } })
+      this.$router.replace({ name: 'feeds' })
     }
   }
 }

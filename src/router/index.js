@@ -5,7 +5,8 @@ import { auth } from '../pages/auth'
 import { following } from '../pages/following'
 import { repos } from '../pages/repos'
 import { userPage } from '../pages/userPage'
-import * as api from '../api'
+// import * as api from '../api'
+import store from '../store'
 
 const routes = [
   {
@@ -51,13 +52,23 @@ const router = createRouter({
 })
 
 router.beforeEach(async (to, from, next) => {
-  const authRoute = to.name === 'auth'
+  let isLogged = store.getters['auth/isLogged']
 
-  try {
-    await api.user.getUserData()
-    next(authRoute ? { name: 'feeds' } : null)
-  } catch (e) {
-    next(authRoute ? null : { name: 'auth' })
+  if (!isLogged && localStorage.getItem('token')) {
+    await store.dispatch('auth/getUser')
+    isLogged = store.getters['auth/isLogged']
+  }
+
+  console.log(isLogged)
+
+  if (!isLogged && !to.name === 'auth') {
+    console.log('!isLogged && !to.name === auth')
+    next({ name: 'auth' })
+  } else if (isLogged && to.name === 'auth') {
+    console.log('isLogged && to.name === auth')
+    next({ name: 'feeds' })
+  } else {
+    next()
   }
 })
 

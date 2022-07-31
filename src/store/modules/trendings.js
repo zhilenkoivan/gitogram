@@ -40,7 +40,10 @@ export default {
     getRepoById: (state) => (id) => state.data.find((trendingsRepo) => trendingsRepo.id === id)
   },
   actions: {
-    async fetchTrendings ({ commit }) {
+    async fetchTrendings ({ commit, state }) {
+      if (state.data.length) {
+        return false
+      }
       try {
         const { data } = await api.trendings.getTrendings()
         commit('SET_TRENDINGS', data.items)

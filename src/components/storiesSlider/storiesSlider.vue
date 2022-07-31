@@ -50,8 +50,7 @@ export default {
       slideNdx: 0,
       sliderPosition: 0,
       loading: false,
-      btnsShown: true,
-      readmeInd: 0
+      btnsShown: true
     }
   },
   computed: {

@@ -3,7 +3,8 @@ import * as api from '../../api'
 export default {
   namespaced: true,
   state: {
-    data: []
+    data: [],
+    fetched: false
   },
   mutations: {
     SET_STARRED: (state, starred) => {
@@ -11,6 +12,7 @@ export default {
         repo.following = true
         return repo
       })
+      state.fetched = true
     },
     SET_ISSUES_TO_REPO: (state, { id, issues }) => {
       state.data = state.data.map((repo) => {
@@ -36,7 +38,10 @@ export default {
     getStarredRepo: (state) => (id) => state.data.find((repo) => repo.id === id)
   },
   actions: {
-    async fetchStarred ({ commit }, payload) {
+    async fetchStarred ({ commit, state }, payload) {
+      if (state.fetched) {
+        return
+      }
       try {
         const { data } = await api.starred.getStarredReposApi({ limit: payload?.limit })
         commit('SET_STARRED', data)

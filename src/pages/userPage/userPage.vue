@@ -48,7 +48,6 @@ export default {
     return {
       user: computed(() => state.auth.user),
       followingQty: computed(() => state.starred.data.length)
-
     }
   },
   data () {

@@ -35,14 +35,10 @@
 import { comment } from '../comment'
 import { toggler } from '../toggler'
 import { contentLoader } from '../contentLoader'
+import { ref } from 'vue'
 
 export default {
   name: 'feed',
-  data () {
-    return {
-      shown: false
-    }
-  },
   components: {
     comment,
     toggler,
@@ -70,18 +66,25 @@ export default {
       required: true
     }
   },
+  setup (props, { emit }) {
+    const shown = ref(false)
+
+    const toggle = (isOpened) => {
+      shown.value = isOpened
+      if (isOpened && props.issues.length === 0) {
+        emit('loadContent')
+      }
+    }
+
+    return {
+      shown,
+      toggle
+    }
+  },
   computed: {
     normalDate () {
       const date = new Date(this.date)
       return date.toLocaleString('en-EN', { month: 'short', day: 'numeric' })
-    }
-  },
-  methods: {
-    toggle (isOpened) {
-      this.shown = isOpened
-      if (isOpened && this.issues.length === 0) {
-        this.$emit('loadContent')
-      }
     }
   }
 }

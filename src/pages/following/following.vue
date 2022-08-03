@@ -31,9 +31,11 @@
 </template>
 
 <script>
-import { mapActions, mapState } from 'vuex'
 import { spinner } from '../../components/spinner'
 import { subscription } from '../../components/subscription'
+
+import { useStore } from 'vuex'
+import { ref, computed } from 'vue'
 
 export default {
   name: 'Following',
@@ -41,34 +43,65 @@ export default {
     spinner,
     subscription
   },
-  data () {
-    return {
-      loading: false,
-      error: null
+  setup () {
+    const loading = ref(false)
+    const error = ref(null)
+
+    const { dispatch, state } = useStore()
+    dispatch('starred/fetchStarred')
+    const starRepo = () => {
+      dispatch('starred/starRepo')
     }
-  },
-  computed: {
-    ...mapState({
-      starred: (state) => state.starred.data
-    })
-  },
-  methods: {
-    ...mapActions({
-      fetchStarred: 'starred/fetchStarred',
-      starRepo: 'starred/starRepo',
-      unStarRepo: 'starred/unStarRepo'
-    })
-  },
-  async created () {
-    this.loading = true
-    try {
-      await this.fetchStarred()
-    } catch (e) {
-      this.error = e.message
-    } finally {
-      this.loading = false
+    const unStarRepo = () => {
+      dispatch('starred/unStarRepo')
+    }
+    const fetchStarred = async () => {
+      loading.value = true
+      try {
+        await dispatch('starred/fetchStarred')
+      } catch (e) {
+        error.value = e.message
+      } finally {
+        loading.value = false
+      }
+    }
+    return {
+      loading,
+      error,
+      starred: computed(() => state.starred.data),
+      fetchStarred,
+      starRepo,
+      unStarRepo
     }
   }
+  // data () {
+  //   return {
+  //     loading: false,
+  //     error: null
+  //   }
+  // },
+  // computed: {
+  //   ...mapState({
+  //     starred: (state) => state.starred.data
+  //   })
+  // },
+  // methods: {
+  //   ...mapActions({
+  //     fetchStarred: 'starred/fetchStarred',
+  //     starRepo: 'starred/starRepo',
+  //     unStarRepo: 'starred/unStarRepo'
+  //   })
+  // },
+  // async created () {
+  //   this.loading = true
+  //   try {
+  //     await this.fetchStarred()
+  //   } catch (e) {
+  //     this.error = e.message
+  //   } finally {
+  //     this.loading = false
+  //   }
+  // }
 }
 </script>
 

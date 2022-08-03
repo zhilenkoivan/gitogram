@@ -34,7 +34,7 @@
 import { spinner } from '../../components/spinner'
 import { subscription } from '../../components/subscription'
 
-import { useStore } from 'vuex'
+import { useStore, mapActions } from 'vuex'
 import { ref, computed } from 'vue'
 
 export default {
@@ -49,12 +49,7 @@ export default {
 
     const { dispatch, state } = useStore()
     dispatch('starred/fetchStarred')
-    const starRepo = () => {
-      dispatch('starred/starRepo')
-    }
-    const unStarRepo = () => {
-      dispatch('starred/unStarRepo')
-    }
+
     const fetchStarred = async () => {
       loading.value = true
       try {
@@ -69,11 +64,9 @@ export default {
       loading,
       error,
       starred: computed(() => state.starred.data),
-      fetchStarred,
-      starRepo,
-      unStarRepo
+      fetchStarred
     }
-  }
+  },
   // data () {
   //   return {
   //     loading: false,
@@ -85,13 +78,12 @@ export default {
   //     starred: (state) => state.starred.data
   //   })
   // },
-  // methods: {
-  //   ...mapActions({
-  //     fetchStarred: 'starred/fetchStarred',
-  //     starRepo: 'starred/starRepo',
-  //     unStarRepo: 'starred/unStarRepo'
-  //   })
-  // },
+  methods: {
+    ...mapActions({
+      starRepo: 'starred/starRepo',
+      unStarRepo: 'starred/unStarRepo'
+    })
+  }
   // async created () {
   //   this.loading = true
   //   try {

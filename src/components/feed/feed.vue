@@ -7,7 +7,7 @@
       <slot name="postContent"></slot>
     </div>
     <div class="post-toggle">
-      <div class="toggler__wrap mt-18">
+      <div class="toggler__wrap">
         <toggler @onToggle="toggle"></toggler>
       </div>
       <div class="content-loader" v-if="loading">

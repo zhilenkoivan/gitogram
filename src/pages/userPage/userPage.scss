@@ -1,14 +1,24 @@
 .x-container {
     max-width: 1300px;
+    margin-top: 0;
+    padding: 0;
 }
 .wrapper {
     width: 100%;
     display: flex;
+    @media (max-width: 992px) {
+        flex-direction: column;
+        align-items: center;
+     }
 }
 .user {
+    padding: 15px;
     padding-top: 40px;
     padding-right: 100px;
     height: 100%;
+    @media (max-width: 992px) {
+        padding-right: 0px;
+     }
 }
 .content {
     width: 100%;
@@ -16,6 +26,9 @@
     border-left: 1px solid #D3D3D3;
     padding-left: 70px;
     margin-right: 20px;
+    @media (max-width: 992px) {
+        padding-left: 20px;
+     }
 }
 .title {
   font-weight: 700;

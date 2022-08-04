@@ -27,6 +27,9 @@
         </ul>
         <div v-else class="no-comments">No comments</div>
       </div>
+      <div class="date">
+        <div class="day">{{ normalDate }}</div>
+      </div>
     </div>
   </div>
 </template>

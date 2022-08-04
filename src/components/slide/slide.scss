@@ -19,6 +19,7 @@
     padding-top: 5px;
     border-top-right-radius: 8px;
     border-top-left-radius: 8px;
+    border-bottom: 1px solid #CACACA;
     z-index: 2;
     background: rgba(255, 254, 254, 0.99);
 }
@@ -32,11 +33,14 @@
     line-height: 18px;
     border-radius: 0px;
     padding: 12px;
+    padding-bottom: 0px;
 }
 .content {
-    padding: 100px 18px 100px;
-    width: 100%;
+    margin-top: 35px;
+    padding: 95px 18px 100px;
+    width: 99%;
     height: 100%;
+    z-index: -1;
     overflow: hidden;
     overflow-y: scroll;
     &::-webkit-scrollbar {
@@ -70,6 +74,10 @@
     padding: 24px 52px 32px;
     z-index: 2;
     background: rgba(255, 254, 254, 0.99);
+    border-top: 1px solid #CACACA;
     border-bottom-right-radius: 8px;
     border-bottom-left-radius: 8px;
+}
+.btn-following {
+    width: 270px;
 }
